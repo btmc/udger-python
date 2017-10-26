@@ -6,7 +6,7 @@ class Udger(UdgerBase):
 
     def parse_ua(self, ua_string):
 
-        if hasattr(self.lru_cache) and self.lru_cache is not None:
+        if hasattr(self, 'lru_cache') and self.lru_cache is not None:
             cached = self.lru_cache.get(ua_string, None)
             if cached is not None:
                 return cached
@@ -44,7 +44,7 @@ class Udger(UdgerBase):
 
         ua['ua_string'] = ua_string
 
-        if hasattr(self, lru_cache):
+        if hasattr(self, 'lru_cache'):
             self.lru_cache[ua_string] = ua
 
         return ua
